@@ -1,0 +1,27 @@
+<div class="w-75 mx-auto py-4">
+    <h3 class="fw-bold"> Login Now: </h3>
+    <div *ngIf="apiError" class="alert alert-danger">{{apiError}}</div>
+    <form (ngSubmit)="handleLogin(loginForm)" [formGroup]="loginForm">
+
+ 
+        <label class="fw-bold" for="email">Email: </label>
+        <input formControlName="email" type="email" class="mb-2 form-control" id="email">
+        <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched" class="alert alert-danger">
+            <p *ngIf="loginForm.get('email')?.getError('email')" class="m-0">Invalid Email</p>
+            <p *ngIf="loginForm.get('email')?.getError('required')" class="m-0">Email is required</p>
+        </div>
+
+        <label class="fw-bold" for="password">Passwoord: </label>
+        <input formControlName="password" type="password" class="mb-2 form-control" id="password">
+        <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched" class="alert alert-danger">
+            <p *ngIf="loginForm.get('password')?.getError('pattern')" class="m-0">Password Must start with a capital letter then from 5 to 10 letters or numbers</p>
+            <p *ngIf="loginForm.get('password')?.getError('required')" class="m-0">Password is required</p>
+        </div>
+
+        <button [disabled]="loginForm.invalid" type="submit" class="btn fw-bold d-block ms-auto border-none border-0 text-white bg-main">
+            <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+            <span *ngIf="!isLoading" class="fw-bold">Login</span>
+        </button>
+
+    </form>
+</div>

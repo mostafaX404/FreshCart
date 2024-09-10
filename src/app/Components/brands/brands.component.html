@@ -1,0 +1,10 @@
+<div class="row my-5">
+ 
+    <div *ngFor="let brand of brands" class="col-md-2">
+        <div class="product px-2 py-4">
+           
+                <img class="w-100" src={{brand.image}} alt="">
+                <h2 class="h6 fw-bold">{{brand.name}}</h2>      
+        </div>
+    </div>
+</div>

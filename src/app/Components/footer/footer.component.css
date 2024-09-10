@@ -1,0 +1,12 @@
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+  }
+  .payment-partners img {
+    max-height: 30px;
+    margin-right: 10px;
+  }
+  .app-store img {
+    max-height: 40px;
+    margin-right: 10px;
+  }
